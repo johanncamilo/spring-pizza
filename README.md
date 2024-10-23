@@ -5,6 +5,7 @@
 ## MER Proyecto
 ![img.png](MER.png)
 
+### Initializr
 ![img.png](initialzr.png)
 
 ## Conexión Mysql desde terminal
