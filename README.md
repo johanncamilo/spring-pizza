@@ -1,3 +1,12 @@
+# SPRING DATA JPA
+* [Drive](https://drive.google.com/drive/u/2/folders/1fI-a1iHDykf1mxImRk2gq3sYNu6Qp4cM)
+* [Captura Apuntes](https://docs.google.com/document/d/1AUU2yWlbI9tvZ-sUAyw5rv9EtTVBJmAIe9HsoNVh8qM/edit?tab=t.0)
+
+## MER Proyecto
+![img.png](MER.png)
+
+![img.png](initialzr.png)
+
 ## Conexión Mysql desde terminal
 
 ```shell
