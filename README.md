@@ -78,3 +78,16 @@ no se recomienda @Data ya que lombok gestiona automáticamente los métodos equa
 practica hacerlo a través de lombok para entidades
 
 en su lugar se coloca @Getter @Setter @NoArgsConstructor
+
+
+## JdbcTemplate
+* se inyecta en el constructor de un servicio usando @Autowired
+* Actua como una capa de abstracción sobre api jdbc
+
+## Spring Repository
+* JPA REPOSITORY Extiende de CrudRepository y PagingAndSortingRepository
+* Tiene operaciones de JPA como FLUSH y tareas especificas de DB
+* usar el tag `@EnableJpaRepositories` en la clase principal
+* CrudRepository retorna un Iterable<T> que es un set
+* ListCrudRepository retorna un List<T>
+* Los Spring Repository ayudan a interactuar con la DB con poco codigo
