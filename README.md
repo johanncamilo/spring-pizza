@@ -1,11 +1,14 @@
 # SPRING DATA JPA
+
 * [Drive](https://drive.google.com/drive/u/2/folders/1fI-a1iHDykf1mxImRk2gq3sYNu6Qp4cM)
 * [Captura Apuntes](https://docs.google.com/document/d/1AUU2yWlbI9tvZ-sUAyw5rv9EtTVBJmAIe9HsoNVh8qM/edit?tab=t.0)
 
 ## MER Proyecto
+
 ![img.png](MER.png)
 
 ### Initializr
+
 ![img.png](initialzr.png)
 
 ## Conexión Mysql desde terminal
@@ -79,15 +82,25 @@ practica hacerlo a través de lombok para entidades
 
 en su lugar se coloca @Getter @Setter @NoArgsConstructor
 
-
 ## JdbcTemplate
+
 * se inyecta en el constructor de un servicio usando @Autowired
 * Actua como una capa de abstracción sobre api jdbc
 
 ## Spring Repository
+
 * JPA REPOSITORY Extiende de CrudRepository y PagingAndSortingRepository
 * Tiene operaciones de JPA como FLUSH y tareas especificas de DB
 * usar el tag `@EnableJpaRepositories` en la clase principal
 * CrudRepository retorna un Iterable<T> que es un set
 * ListCrudRepository retorna un List<T>
 * Los Spring Repository ayudan a interactuar con la DB con poco codigo
+
+## LAZY & EAGER
+
+* **FetchType.LAZY:** No carga la relación sino hasta que se use, si no se usa la relac. no se carga nada
+* **FetchType.EAGER:** Cuando se recupere una entidad se recupere automaticamente la relación
+
+#### Valores por defecto 
+![img.png](LazyEager.png)
+> Sólo usar relaciones estrictamente necesarias para el código y usar el FetchType.LAZY para mejorar el rendimiento
