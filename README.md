@@ -101,6 +101,17 @@ en su lugar se coloca @Getter @Setter @NoArgsConstructor
 * **FetchType.LAZY:** No carga la relación sino hasta que se use, si no se usa la relac. no se carga nada
 * **FetchType.EAGER:** Cuando se recupere una entidad se recupere automaticamente la relación
 
-#### Valores por defecto 
+#### Valores por defecto
+
 ![img.png](LazyEager.png)
 > Sólo usar relaciones estrictamente necesarias para el código y usar el FetchType.LAZY para mejorar el rendimiento
+
+* OneToMany: LAZY
+* ManyToOne: EAGER
+* ManyToMany: LAZY
+* OneToOne: EAGER
+
+## Query Methods
+
+* Convierten los queryMethod a sql en tiempo de ejecución
+* Orden QueryMethod en Pizza: Repository->Service->Controller
