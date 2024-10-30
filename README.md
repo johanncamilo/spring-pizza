@@ -115,3 +115,8 @@ en su lugar se coloca @Getter @Setter @NoArgsConstructor
 
 * Convierten los queryMethod a sql en tiempo de ejecución
 * Orden QueryMethod en Pizza: Repository->Service->Controller
+
+### Sinónimos queryMethod findAllBy()
+* getAllBy()
+* queryBy()
+* searchAllBy()
