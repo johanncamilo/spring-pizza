@@ -117,6 +117,23 @@ en su lugar se coloca @Getter @Setter @NoArgsConstructor
 * Orden QueryMethod en Pizza: Repository->Service->Controller
 
 ### Sinónimos queryMethod findAllBy()
+
 * getAllBy()
 * queryBy()
 * searchAllBy()
+
+## Actualización queryMethod en PizzaRepostitory
+
+Se reemplazó
+
+```java
+PizzaEntity findAllByAvailableTrueAndNameIgnoreCase(String name);
+```
+
+por
+
+```java
+Optional<PizzaEntity> findFirstByAvailableTrueAndNameIgnoreCase(String name);
+```
+
+También se puede usar findByTop
