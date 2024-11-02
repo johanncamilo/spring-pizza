@@ -115,6 +115,9 @@ en su lugar se coloca @Getter @Setter @NoArgsConstructor
 
 * Convierten los queryMethod a sql en tiempo de ejecución
 * Orden QueryMethod en Pizza: Repository->Service->Controller
+* Siempre el uso de los QueryMethods son de mayor utilidad a la hora de personalizar nuestras consultas hacia la base de
+  datos, y la utilidad de poder retornar una sublista de una lista de objetos como lo es **Page ** nos da la posibilidad
+  de paginar las respuestas y adicional agregar una dirección de ordenamiento ascendente o descendente
 
 ### Sinónimos queryMethod findAllBy()
 
@@ -137,3 +140,14 @@ Optional<PizzaEntity> findFirstByAvailableTrueAndNameIgnoreCase(String name);
 ```
 
 También se puede usar findByTop
+
+## ListPagingAndSortingRepository<PizzaEntity, Integer>
+
+* crear interface PizzaPagSortReposotory que extiende de esta gran interface
+* Provee de Paginación y Sorting de consultas
+* Siempre hay que reemplazar los tipos de return List por Page
+* Hay que utilizar interfaces de Spring Data como Pageable, PageRequest, Sort
+
+### Pageable
+
+Interface de Spring Data para implementar paginación en consultas
