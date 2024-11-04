@@ -151,3 +151,16 @@ También se puede usar findByTop
 ### Pageable
 
 Interface de Spring Data para implementar paginación en consultas
+
+## JPQL
+
+* Java Persistence Query Language
+* Permite hacer consultas a la DB basadas en las entities, en lugar del sql tracicional que usa tablas y columnas
+* Hibernate convierte el jpql en sql nativo
+* Se definen en el Repositorio y son una alternativa a los queryMethods
+* usan el tag @Query
+* el nombre de la variable `:phone` coincide con el nombre `@Param("phone")`
+```java
+@Query(value = "select c from CustomerEntity c where c.phoneNumber = :phone")
+CustomerEntity findByPhone(@Param("phone") String phone);
+```
