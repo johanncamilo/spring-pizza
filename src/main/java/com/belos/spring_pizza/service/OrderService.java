@@ -40,4 +40,8 @@ public class OrderService {
         // esto recibe una lista de Strings por eso la variable de arriba se convierte con Arrays.asList
         return this.orderRepository.findAllByMethodIn(methods);
     }
+
+    public List<OrderEntity> getCustomerOrders(String idCustomer) {
+        return this.orderRepository.findCustomerOrders(idCustomer);
+    }
 }

@@ -10,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.OrderBy;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -51,5 +52,6 @@ public class OrderEntity {
 
     // usar el atributo order creado en OrderItemEntity (relación contraria) para crear la relación circular
     @OneToMany(mappedBy = "order")
+    @OrderBy("price desc")
     private List<OrderItemEntity> items;
 }

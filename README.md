@@ -164,3 +164,12 @@ Interface de Spring Data para implementar paginación en consultas
 @Query(value = "select c from CustomerEntity c where c.phoneNumber = :phone")
 CustomerEntity findByPhone(@Param("phone") String phone);
 ```
+
+## Query Nativo
+* Similar al jpql sólo que hay que ponerle el atributo `nativeQuery = true` en el tag @Query
+* se puede implementar un @OrderBy en un atributo de la entidad
+```java
+@OneToMany(mappedBy = "order")
+@OrderBy("price desc")
+private List<OrderItemEntity> items;
+```
