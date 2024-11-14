@@ -1,4 +1,4 @@
-# SPRING DATA JPA
+0# SPRING DATA JPA
 
 * [Drive](https://drive.google.com/drive/u/2/folders/1fI-a1iHDykf1mxImRk2gq3sYNu6Qp4cM)
 * [Captura Apuntes](https://docs.google.com/document/d/1AUU2yWlbI9tvZ-sUAyw5rv9EtTVBJmAIe9HsoNVh8qM/edit?tab=t.0)
@@ -184,3 +184,20 @@ private List<OrderItemEntity> items;
 * personalizacion: querys complejos
 * projections -> Dtos a medida con atributos personalizados
 * query Projections a traves interfaces para querys complejos con joins y demas
+
+## @Transactional
+
+* Debe ir en método de servicio que pretenda hacer transacciones de modificación
+
+## @Modifying
+
+* Update/ Delete queries must be annotated with @Modifying, otherwise an InvalidDataAccessApiUsageException will be
+  thrown.
+* debe ir en el metodo de un repositorio que vaya a hacer transacciones de update
+* un @Query sin @Modifying sólo puede hacer selects
+
+### Importante!
+
+Usar verbo PATCH para modificaciones parciales como esta
+
+

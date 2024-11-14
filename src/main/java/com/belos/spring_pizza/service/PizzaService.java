@@ -3,6 +3,8 @@ package com.belos.spring_pizza.service;
 import com.belos.spring_pizza.persistence.entity.PizzaEntity;
 import com.belos.spring_pizza.persistence.repository.PizzaPagSortRepository;
 import com.belos.spring_pizza.persistence.repository.PizzaRepository;
+import com.belos.spring_pizza.service.dto.UpdatePizzaPriceDto;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -62,6 +64,11 @@ public class PizzaService {
 
     public void delete(int idPizza) {
         this.pizzaRepository.deleteById(idPizza);
+    }
+
+    @Transactional
+    public void updatePrice(UpdatePizzaPriceDto dto) {
+        this.pizzaRepository.updatePrice(dto);
     }
 
     public boolean exists(int idPizza) {
