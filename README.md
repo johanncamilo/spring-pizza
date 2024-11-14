@@ -160,16 +160,27 @@ Interface de Spring Data para implementar paginación en consultas
 * Se definen en el Repositorio y son una alternativa a los queryMethods
 * usan el tag @Query
 * el nombre de la variable `:phone` coincide con el nombre `@Param("phone")`
+
 ```java
+
 @Query(value = "select c from CustomerEntity c where c.phoneNumber = :phone")
 CustomerEntity findByPhone(@Param("phone") String phone);
 ```
 
 ## Query Nativo
+
 * Similar al jpql sólo que hay que ponerle el atributo `nativeQuery = true` en el tag @Query
 * se puede implementar un @OrderBy en un atributo de la entidad
+
 ```java
+
 @OneToMany(mappedBy = "order")
 @OrderBy("price desc")
 private List<OrderItemEntity> items;
 ```
+
+## Query Projections
+
+* personalizacion: querys complejos
+* projections -> Dtos a medida con atributos personalizados
+* query Projections a traves interfaces para querys complejos con joins y demas
