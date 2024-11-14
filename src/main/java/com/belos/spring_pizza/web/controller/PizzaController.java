@@ -2,11 +2,13 @@ package com.belos.spring_pizza.web.controller;
 
 import com.belos.spring_pizza.persistence.entity.PizzaEntity;
 import com.belos.spring_pizza.service.PizzaService;
+import com.belos.spring_pizza.service.dto.UpdatePizzaPriceDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -79,6 +81,16 @@ public class PizzaController {
     public ResponseEntity<PizzaEntity> upd(@RequestBody PizzaEntity pizza) {
         if (pizza.getIdPizza() != null && this.pizzaService.exists(pizza.getIdPizza())) {
             return ResponseEntity.ok(this.pizzaService.save(pizza));
+        }
+
+        return ResponseEntity.badRequest().build();
+    }
+
+    @PatchMapping("/price")
+    public ResponseEntity<Void> updPrice(@RequestBody UpdatePizzaPriceDto dto) {
+        if (this.pizzaService.exists(dto.getPizzaId())) {
+            this.pizzaService.updatePrice(dto);
+            return ResponseEntity.ok().build();
         }
 
         return ResponseEntity.badRequest().build();
