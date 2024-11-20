@@ -188,6 +188,17 @@ private List<OrderItemEntity> items;
 ## @Transactional
 
 * Debe ir en método de servicio que pretenda hacer transacciones de modificación
+* Gestiona internamente todo el ACID de las transacciones
+* Si un paso falla lanza error 500
+* Claúsula `noRollBack` para poner excepciones
+* Claúsula `propagation = Propagation.REQUIRED` para que deba existir una transacción para ejecutar ese método, si no
+  existe la transacción automáticamente la creará
+
+```java
+@Transactional(noRollbackFor = EmailApiException.class, propagation = Propagation.REQUIRED)
+```
+
+* [propagations](https://www.baeldung.com/spring-transactional-propagation-isolation)
 
 ## @Modifying
 
@@ -200,4 +211,13 @@ private List<OrderItemEntity> items;
 
 Usar verbo PATCH para modificaciones parciales como esta
 
+## Crear una excepcion
 
+* Crear package exception dentro de /service
+* Crear EmailApiException extends RuntimeException
+* Llamar al constructor super dentro del constructor de esa clase con el mensaje como parametro
+* le llama así:
+
+```java
+throw new EmailApiException();
+```
