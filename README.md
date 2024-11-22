@@ -221,3 +221,12 @@ Usar verbo PATCH para modificaciones parciales como esta
 ```java
 throw new EmailApiException();
 ```
+
+## Auditoria
+
+* @CreatedDate -> para el atributo de fechaCreacion
+* @LastModifiedDate -> para el atributo de fechaActualizacion
+* @JsonIgnore -> para que se ignore en la consulta, se pone manualmente uno a uno
+* @MappedSuperclass -> se pone en la clase Entidad que se quiera que herede a otras Entidades en este caso se creo un
+  entity/AuditableEntity para que los atributos queden encapsulados y no se retornen directamente en las peticiones
+* PizzaEntity extends AuditableEntity
