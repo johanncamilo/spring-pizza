@@ -230,3 +230,19 @@ throw new EmailApiException();
 * @MappedSuperclass -> se pone en la clase Entidad que se quiera que herede a otras Entidades en este caso se creo un
   entity/AuditableEntity para que los atributos queden encapsulados y no se retornen directamente en las peticiones
 * PizzaEntity extends AuditableEntity
+
+## Listener personalizado para auditoria
+
+* Crear package autit en persitence/
+* Crear clase AuditPizzaListener
+* crear metodo onPostPersist() con los tags arriba: @PostPersist, @PostUpdate (también existen @PrePersist y,
+  @PreUpdate)
+* Crear metodo onPreDelete con tag @PreRemove
+* Crear metodo potLoad con tag @PostLoad para ser ejecutado despues del select
+* En PizzaEntity agregar el listener personalizado así:
+
+```java
+@EntityListeners({AuditingEntityListener.class, AuditPizzaListener.class})
+```
+
+* implementar Serializable en la entidad para lograr clonarla en la entidad
