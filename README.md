@@ -239,6 +239,11 @@ throw new EmailApiException();
   @PreUpdate)
 * Crear metodo onPreDelete con tag @PreRemove
 * Crear metodo potLoad con tag @PostLoad para ser ejecutado despues del select
+* tags EntityListener:
+  * @PostPersist / @PrePersist
+  * @PostUpdate / @PreUpdate
+  * @PostLoad
+  * @PostRemove / @PreRemove
 * En PizzaEntity agregar el listener personalizado así:
 
 ```java

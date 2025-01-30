@@ -13,6 +13,8 @@ import java.util.Optional;
 public interface PizzaRepository extends ListCrudRepository<PizzaEntity, Integer> {
     List<PizzaEntity> findAllByAvailableTrueOrderByPrice();
 
+    int countAllByAvailableFalse();
+
     Optional<PizzaEntity> findFirstByAvailableTrueAndNameIgnoreCase(String name);
 
     List<PizzaEntity> findAllByAvailableTrueAndDescriptionContainingIgnoreCase(String description);
